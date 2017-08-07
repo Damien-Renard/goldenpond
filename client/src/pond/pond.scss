@@ -1,0 +1,63 @@
+.table-container {
+  border-top: 1px solid #0090ff;
+  border-left: 1px solid #0090ff;
+  background-color: #00ddff;
+  box-shadow: 0 0 30px 10px #00ddff;
+  position: relative;
+  z-index: 10;
+}
+
+.main-body {
+  width: 70vw;
+}
+
+.pond-cell {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  color: #0090ff;
+  border-right: 1px solid #0090ff;
+  border-bottom: 1px solid #0090ff;
+  position: relative;
+  z-index: 0;
+}
+
+.pond-cell-id {
+  position: relative;
+  z-index: 10;
+}
+
+.cattail {
+  width: 120px;
+  position: relative;
+  z-index: 30;
+  margin-top: -90px;
+  margin-right: -35px;
+}
+
+.ducks-icon-N {
+  width: 30px;
+  transform: rotate(270deg);
+  position: absolute;
+  z-index: 100;
+}
+
+.ducks-icon-S {
+  width: 30px;
+  transform: rotate(90deg);
+  position: absolute;
+  z-index: 100;
+}
+
+.ducks-icon-E {
+  width: 30px;
+  position: absolute;
+  z-index: 100;
+}
+
+.ducks-icon-W {
+  width: 30px;
+  transform: rotate(180deg);
+  position: absolute;
+  z-index: 100;
+}

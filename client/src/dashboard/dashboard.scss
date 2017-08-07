@@ -1,0 +1,41 @@
+.actions-panel {
+  width: 30vw;
+  height: 100vh;
+  background-color: #001360;
+  padding: 50px 30px;
+  color: #FFF;
+}
+
+.main {
+  width: 70vw;
+}
+
+.panel-btn-container {
+  margin: 20px 0;
+}
+
+.panel-btn-img {
+  background-color: #FFF;
+  border-radius: 50%;
+  width: 32px;
+  padding: 5px;
+  position: relative;
+  z-index: 50;
+}
+
+.panel-btn {
+  position: relative;
+  z-index: 10;
+  border-radius: 5px 20px 20px 5px;
+  padding: 9px 20px;
+  border: none;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 0.8em;
+  background-color: blue;
+  margin-left: -14px;
+}
+
+.control-btn {
+  margin: 10px;
+}

@@ -1,0 +1,69 @@
+.modal-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 4999;
+  background: rgba(32, 35, 52, 0.6);
+  padding: 10px;
+}
+
+.modal-content {
+  padding: 20px;
+}
+
+.modal-body {
+  width: 30%;
+  min-width: 300px;
+  background-color: #FFF;
+  border-radius: 10px;
+  padding: 35px;
+  input {
+    min-width: 190px;
+    border-radius: 10px;
+    border: 1px solid #1A91EB;
+    padding: 10px;
+
+  }
+}
+
+/* ---- CREATE POND ---- */
+.create-pond-title {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.create-pond-body, .create-pond-row {
+  margin: 20px 0;
+}
+
+.modal-btn {
+  width: 100%;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 10px;
+  background-color: #1A91EB;
+  margin: 20px 0 0 0;
+  color: #FFF;
+  font-weight: 650;
+  font-size: 0.9em;
+}
+
+.btn-disabled {
+  background-color: grey;
+  color: #FFF;
+}
+
+.pond-list-item {
+  margin: 5px 0 0 0;
+  cursor: pointer;
+}
+
+.active-item {
+  color: #1A91EB;
+  font-weight: bold;
+}
