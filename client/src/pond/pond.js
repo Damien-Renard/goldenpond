@@ -5,7 +5,7 @@ import { PondGrid } from '../utils/utils';
 /* ---- ASSETS ---- */
 import Cattail from '../../../public/assets/img/cattails.jpg';
 
-const Pond = ({ size, ducks }) => {
+const Pond = ({ size, ducks, handleSelectDuck, activeDuck }) => {
   const pondGrid = new PondGrid(size);
   const grid = pondGrid.grid;
   return (
@@ -18,10 +18,20 @@ const Pond = ({ size, ducks }) => {
                 row.map(cell => (
                   <div key={cell.coords} className="pond-cell flex-row-center-center">
                     {
-                      ducks.map(duck => (
-                        cell.x === duck.x && cell.y === duck.y &&
-                        <img key={`duck-${duck.x}-${duck.y}-${duck.heading}`} src={Duck} alt="duck" className={duck.className} />
-                        ))
+                      ducks.map((duck) => {
+                        const active = duck.id === +activeDuck ? 'active-duck' : '';
+                        return (
+                          cell.x === duck.x && cell.y === duck.y &&
+                            <img
+                              id={duck.id}
+                              key={`duck-${duck.x}-${duck.y}-${duck.heading}`}
+                              src={Duck}
+                              alt={`duck-${duck.id}`}
+                              className={`${duck.className} ${active}`}
+                              onClick={ev => handleSelectDuck(ev)}
+                            />
+                        );
+                      })
                     }
                     <div className="pond-cell-id" />
                   </div>
@@ -31,7 +41,7 @@ const Pond = ({ size, ducks }) => {
           ))
         }
       </div>
-      <img src={Cattail} className="cattail" alt="cattail" />
+      {/* <img src={Cattail} className="cattail" alt="cattail" /> */}
     </div>
   );
 };

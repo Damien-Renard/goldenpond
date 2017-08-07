@@ -3,13 +3,17 @@ const db = require('../../db');
 
 const Duck = db.Duck;
 
-router.get('/', (req, res, next) => (
-  Duck.findAll()
-    .then((response) => {
-      const allDucks = response.map(duck => duck.dataValues);
-      res.status(200).json(allDucks);
-    })
-    .catch(next)
+router.get('/fetch/:pondId', (req, res, next) => (
+  Duck.findAll({
+    where: {
+      pondId: req.params.pondId,
+    },
+  })
+  .then((response) => {
+    const allDucks = response.map(duck => duck.dataValues);
+    res.status(200).json(allDucks);
+  })
+  .catch(next)
 ));
 
 router.post('/', (req, res, next) => (
@@ -19,6 +23,15 @@ router.post('/', (req, res, next) => (
       res.status(201).json(newDuck);
     })
     .catch(next)
+));
+
+router.put('/update/:duckId', (req, res, next) => (
+  Duck.findById(req.params.duckId)
+  .then((duck) => {
+    duck.update(req.body)
+    .then(updatedDuck => res.status(200).json(updatedDuck));
+  })
+  .catch(next)
 ));
 
 router.delete('/reset/:pondId', (req, res, next) => (

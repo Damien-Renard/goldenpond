@@ -14,7 +14,7 @@ export const clearPond = pondId => (
 
 export const fetchDucks = pondId => (
   (dispatch) => {
-    axios.get(`/api/duck/${pondId}`)
+    axios.get(`/api/duck/fetch/${pondId}`)
     .then(ducks => dispatch({
       type: CONST.FETCH_DUCKS,
       payload: ducks,
@@ -28,6 +28,16 @@ export const saveDuck = newDuck => (
     .then(savedDuck => dispatch({
       type: CONST.SAVE_DUCK,
       payload: savedDuck,
+    }));
+  }
+);
+
+export const updateDuck = (duckId, updatedDuck) => (
+  (dispatch) => {
+    axios.put(`/api/duck/update/${duckId}`, updatedDuck)
+    .then(duck => dispatch({
+      type: CONST.UPDATE_DUCK,
+      payload: duck,
     }));
   }
 );

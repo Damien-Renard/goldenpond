@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchOnePond } from '../../../redux/actions/pond';
+import { fetchDucks } from '../../../redux/actions/duck';
 
 class PondsList extends Component {
   constructor() {
@@ -21,6 +22,7 @@ class PondsList extends Component {
 
   handleConfirmSelectedPond() {
     this.props.onConfirmPond(this.state.selectedPond);
+    this.props.onFetchDucks(this.state.selectedPond);
     this.props.onCloseModal('/main');
   }
 
@@ -62,6 +64,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  onFetchDucks: pondId => dispatch(fetchDucks(pondId)),
   onConfirmPond: pondId => dispatch(fetchOnePond(pondId)),
 });
 

@@ -34,7 +34,7 @@ export function getPondValues(min, max) {
   return valArr;
 }
 
-export function returnHeading(heading, spin) {
+export function getHeadingAfterSpin(heading, spin) {
   switch (heading) {
     case 'N':
       return spin === 'P' ? 'W' : spin === 'S' ? 'E' : 'N';

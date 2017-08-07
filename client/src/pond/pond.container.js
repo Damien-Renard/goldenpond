@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchDucks } from '../../redux/actions/duck';
-import { fetchOnePond } from '../../redux/actions/pond';
 
 /* ---- CHILD COMPONENTS ---- */
 import Dashboard from '../dashboard/panel.container';
@@ -14,25 +12,35 @@ class PondContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      ducks: [],
+      activeDuck: '',
     };
+    this.handleSelectDuck = this.handleSelectDuck.bind(this);
+  }
+
+  handleSelectDuck(ev) {
+    this.setState({
+      activeDuck: ev.target.id,
+    });
   }
 
   render() {
     return (
       <div id="wrapper" className="flex-column-center-center">
         {
-          this.props.currentPond && this.props.ducks
+          this.props.currentPond && this.props.ducks !== []
           ?
             <div className="flex-row-center-center">
               <Dashboard
                 ducks={this.props.ducks}
                 pondId={this.props.currentPond.id}
+                activeDuck={this.state.activeDuck}
               />
               <div className="main-body flex-column-center-center">
                 <Pond
                   size={[this.props.currentPond.x, this.props.currentPond.y]}
                   ducks={this.props.ducks}
+                  handleSelectDuck={this.handleSelectDuck}
+                  activeDuck={this.state.activeDuck}
                 />
               </div>
             </div>
@@ -48,9 +56,4 @@ const mapStateToProps = state => ({
   currentPond: state.pond.currentPond,
 });
 
-const mapDispatchToProps = dispatch => ({
-  onFetchDucks: pondId => dispatch(fetchDucks(pondId)),
-  onFetchCurrentPond: pondId => dispatch(fetchOnePond(pondId)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(PondContainer);
+export default connect(mapStateToProps, null)(PondContainer);

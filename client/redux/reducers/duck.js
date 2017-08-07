@@ -15,8 +15,11 @@ export default (state = initialState, action) => {
       break;
     case CLEAR_POND:
       newState.ducks = [];
-    // case UPDATE_DUCK:
-    //   return newState.ducks.filter(e => e.id !== action.payload.id).concat(action.payload);
+      break;
+    case UPDATE_DUCK:
+      newState.ducks = state.ducks.filter(e => e.id !== action.payload.data.id)
+        .concat(action.payload.data);
+      break;
     // case DELETE_DUCK:
     //   return newState.ducks.filter(e => e.id !== action.payload.id);
     default:
