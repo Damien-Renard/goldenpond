@@ -41,7 +41,7 @@ const Pond = ({ size, ducks, handleSelectDuck, activeDuck }) => {
           ))
         }
       </div>
-      {/* <img src={Cattail} className="cattail" alt="cattail" /> */}
+      <img src={Cattail} className="cattail" alt="cattail" />
     </div>
   );
 };

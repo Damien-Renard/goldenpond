@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import Btn from './btn';
 import Duck from '../../../public/assets/img/duck.png';
 
@@ -16,6 +17,7 @@ class PanelContainer extends Component {
     super();
     this.handleAddDuck = this.handleAddDuck.bind(this);
     this.handleClearPond = this.handleClearPond.bind(this);
+    this.handleReturnHome = this.handleReturnHome.bind(this);
   }
 
   handleAddDuck() {
@@ -53,19 +55,24 @@ class PanelContainer extends Component {
     this.props.onUpdateDuck(duck.id, duck);
   }
 
+  handleReturnHome() {
+    browserHistory.push('/');
+  }
+
   render() {
     const activeDuck = this.props.ducks.filter(duck => duck.id === +this.props.activeDuck)[0];
     return (
       <div className="actions-panel flex-column-center-start">
-        <div className="panel-title">Welcome to the Golden Pond!</div>
+        <div className="panel-title">{`Welcome to ${this.props.currentPond.name}!`}</div>
         <div className="panel-btn-container">
           <Btn img={Duck} text={'+ duck'} handleClick={this.handleAddDuck} />
-          <Btn img={Duck} text={'Clear Pond'} handleClick={this.handleClearPond} />
-          <Btn img={Duck} text={'F'} handleClick={() => this.handleMoveForward(activeDuck, this.props.currentPond)} />
+          <Btn text={'Clear Pond'} handleClick={this.handleClearPond} />
+          <Btn text={'F'} handleClick={() => this.handleMoveForward(activeDuck, this.props.currentPond)} />
           <div className="flex-row-center-center">
-            <Btn img={Duck} text={'P'} handleClick={() => this.handleSpin(activeDuck, 'P')} />
-            <Btn img={Duck} text={'S'} handleClick={() => this.handleSpin(activeDuck, 'S')} />
+            <Btn text={'P'} handleClick={() => this.handleSpin(activeDuck, 'P')} />
+            <Btn text={'S'} handleClick={() => this.handleSpin(activeDuck, 'S')} />
           </div>
+          <Btn text={'HOME'} handleClick={this.handleReturnHome} />
         </div>
       </div>
     );
