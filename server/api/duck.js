@@ -27,10 +27,10 @@ router.post('/', (req, res, next) => (
 
 router.put('/update/:duckId', (req, res, next) => (
   Duck.findById(req.params.duckId)
-  .then((duck) => {
+  .then(duck => (
     duck.update(req.body)
-    .then(updatedDuck => res.status(200).json(updatedDuck));
-  })
+    .then(updatedDuck => res.status(200).json(updatedDuck))
+  ))
   .catch(next)
 ));
 
