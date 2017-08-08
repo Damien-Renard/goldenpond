@@ -51,11 +51,13 @@
   color: #FFF;
   font-weight: 650;
   font-size: 0.9em;
+  cursor: pointer;
 }
 
 .btn-disabled {
   background-color: grey;
   color: #FFF;
+  cursor: not-allowed;
 }
 
 .pond-list-item {
