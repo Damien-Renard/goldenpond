@@ -80,7 +80,6 @@ class PanelContainer extends Component {
                 <BtnDisabled text={'P'} />
                 <BtnDisabled text={'S'} />
               </div>
-              <Btn text={'HOME'} />
             </div>
             : <div className="duck-controls">
               <Btn text={'F'} handleClick={() => this.handleMoveForward(activeDuck, this.props.currentPond)} />
@@ -88,9 +87,9 @@ class PanelContainer extends Component {
                 <Btn text={'P'} handleClick={() => this.handleSpin(activeDuck, 'P')} />
                 <Btn text={'S'} handleClick={() => this.handleSpin(activeDuck, 'S')} />
               </div>
-              <Btn text={'HOME'} handleClick={this.handleReturnHome} />
             </div>
           }
+          <Btn text={'HOME'} handleClick={this.handleReturnHome} />
         </div>
       </div>
     );
