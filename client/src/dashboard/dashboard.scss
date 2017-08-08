@@ -1,3 +1,12 @@
+h2 {
+  font-size: 1.2em;
+  margin-top: 20px;
+}
+
+h4 {
+  font-size: 1em;
+}
+
 .actions-panel {
   width: 30vw;
   height: 100vh;
@@ -24,8 +33,6 @@
 }
 
 .panel-btn {
-  position: relative;
-  z-index: 10;
   border-radius: 20px;
   padding: 9px 20px;
   border: none;
@@ -33,6 +40,17 @@
   font-weight: bold;
   font-size: 0.8em;
   background-color: blue;
+}
+
+.panel-btn-disabled {
+  border-radius: 20px;
+  padding: 9px 20px;
+  border: none;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 0.8em;
+  background-color: grey;
+  cursor: not-allowed;
 }
 
 .panel-btn-with-img {

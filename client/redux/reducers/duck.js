@@ -1,4 +1,4 @@
-import { FETCH_DUCKS, SAVE_DUCK, UPDATE_DUCK, DELETE_DUCK, CLEAR_POND } from '../constants';
+import { FETCH_DUCKS, SAVE_DUCK, UPDATE_DUCK, CLEAR_POND } from '../constants';
 
 const initialState = {
   ducks: [],
@@ -20,8 +20,6 @@ export default (state = initialState, action) => {
       newState.ducks = state.ducks.filter(e => e.id !== action.payload.data.id)
         .concat(action.payload.data);
       break;
-    // case DELETE_DUCK:
-    //   return newState.ducks.filter(e => e.id !== action.payload.id);
     default:
       return newState;
   }

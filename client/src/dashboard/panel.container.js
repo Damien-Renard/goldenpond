@@ -4,11 +4,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import Btn from './btn';
+import BtnDisabled from './btn.disabled';
 import Duck from '../../../public/assets/img/duck.png';
 
-import { fetchDucks, saveDuck, updateDuck, deleteDuck, clearPond } from '../../redux/actions/duck';
+import { fetchDucks, saveDuck, updateDuck, clearPond } from '../../redux/actions/duck';
 
-import { getNewDuckCoords, getNewDuckHeading, getHeadingAfterSpin } from '../utils/utils';
+import getNewDuckCoords from '../utils/get.new.duck.coords';
+import getNewDuckHeading from '../utils/get.new.duck.heading';
+import getHeadingAfterSpin from '../utils/get.heading.after.spin';
 
 require('./dashboard.scss');
 
@@ -64,15 +67,30 @@ class PanelContainer extends Component {
     return (
       <div className="actions-panel flex-column-center-start">
         <div className="panel-title">{`Welcome to ${this.props.currentPond.name}!`}</div>
-        <div className="panel-btn-container">
+        <div className="panel-btn-container flex-column-center-center">
           <Btn img={Duck} text={'+ duck'} handleClick={this.handleAddDuck} />
           <Btn text={'Clear Pond'} handleClick={this.handleClearPond} />
-          <Btn text={'F'} handleClick={() => this.handleMoveForward(activeDuck, this.props.currentPond)} />
-          <div className="flex-row-center-center">
-            <Btn text={'P'} handleClick={() => this.handleSpin(activeDuck, 'P')} />
-            <Btn text={'S'} handleClick={() => this.handleSpin(activeDuck, 'S')} />
-          </div>
-          <Btn text={'HOME'} handleClick={this.handleReturnHome} />
+          <h2>{'Duck Controls'}</h2>
+          <h4>{'Select a Duck for a swim!'}</h4>
+          {
+            !activeDuck
+            ? <div className="duck-controls">
+              <BtnDisabled text={'F'} />
+              <div className="flex-row-center-center">
+                <BtnDisabled text={'P'} />
+                <BtnDisabled text={'S'} />
+              </div>
+              <Btn text={'HOME'} />
+            </div>
+            : <div className="duck-controls">
+              <Btn text={'F'} handleClick={() => this.handleMoveForward(activeDuck, this.props.currentPond)} />
+              <div className="flex-row-center-center">
+                <Btn text={'P'} handleClick={() => this.handleSpin(activeDuck, 'P')} />
+                <Btn text={'S'} handleClick={() => this.handleSpin(activeDuck, 'S')} />
+              </div>
+              <Btn text={'HOME'} handleClick={this.handleReturnHome} />
+            </div>
+          }
         </div>
       </div>
     );

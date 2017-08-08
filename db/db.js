@@ -1,3 +1,5 @@
+/* eslint-disable global-require */
+
 const Sequelize = require('sequelize');
 const databaseName = process.env.DATABASE_NAME || require('../package.json').name;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Duck from '../../../public/assets/img/duck.png';
-import { PondGrid } from '../utils/utils';
+import PondGrid from '../utils/pond.grid';
 
 /* ---- ASSETS ---- */
 import Cattail from '../../../public/assets/img/cattails.jpg';

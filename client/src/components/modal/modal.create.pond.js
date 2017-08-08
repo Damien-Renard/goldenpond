@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { savePond } from '../../../redux/actions/pond';
-import { getPondValues } from '../../utils/utils';
+import getPondValues from '../../utils/get.pond.values';
 
 /* ---- CHILD COMPONENT ---- */
 import Input from '../form/input';

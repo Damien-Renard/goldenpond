@@ -1,10 +1,8 @@
-import { FETCH_PONDS, FETCH_ONE_POND, SAVE_POND, UPDATE_POND, DELETE_POND } from '../constants';
+import { FETCH_PONDS, FETCH_ONE_POND, SAVE_POND } from '../constants';
 
 const initialState = {
   currentPond: null,
   ponds: [],
-  sizeX: null,
-  sizeY: null,
 };
 
 export default (state = initialState, action) => {
@@ -20,10 +18,6 @@ export default (state = initialState, action) => {
       newState.ponds = [...state.ponds, action.payload.data];
       newState.currentPond = action.payload.data;
       break;
-    // case UPDATE_POND:
-    //   return newState.ponds.filter(e => e.id !== action.payload.id).concat(action.payload);
-    // case DELETE_POND:
-    //   return newState.ponds.filter(e => e.id !== action.payload.id);
     default:
       return newState;
   }
