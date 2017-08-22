@@ -8,6 +8,7 @@ import Cattail from '../../../public/assets/img/cattails.jpg';
 const Pond = ({ size, ducks, handleSelectDuck, activeDuck }) => {
   const pondGrid = new PondGrid(size);
   const grid = pondGrid.grid;
+
   return (
     <div className="flex-column-center-end">
       <div className="table-container flex-column-center-center">

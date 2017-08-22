@@ -44,9 +44,9 @@ class PanelContainer extends Component {
 
   handleMoveForward(duck, pond) {
     const { heading } = duck;
-    if (heading === 'N' && duck.y < pond.y) duck.y++;
+    if (heading === 'N' && duck.y < (pond.y - 1)) duck.y++;
     else if (heading === 'S' && duck.y > 0) duck.y--;
-    else if (heading === 'E' && duck.x < pond.x) duck.x++;
+    else if (heading === 'E' && duck.x < (pond.x - 1)) duck.x++;
     else if (heading === 'W' && duck.x > 0) duck.x--;
     this.props.onUpdateDuck(duck.id, duck);
   }
