@@ -82,10 +82,10 @@ class PanelContainer extends Component {
               </div>
             </div>
             : <div className="duck-controls">
-              <Btn text={'F'} handleClick={() => this.handleMoveForward(activeDuck, this.props.currentPond)} />
+              <Btn text={'Forward'} handleClick={() => this.handleMoveForward(activeDuck, this.props.currentPond)} />
               <div className="flex-row-center-center">
-                <Btn text={'P'} handleClick={() => this.handleSpin(activeDuck, 'P')} />
-                <Btn text={'S'} handleClick={() => this.handleSpin(activeDuck, 'S')} />
+                <Btn text={'Rotate L'} handleClick={() => this.handleSpin(activeDuck, 'P')} />
+                <Btn text={'Rotate R'} handleClick={() => this.handleSpin(activeDuck, 'S')} />
               </div>
             </div>
           }
