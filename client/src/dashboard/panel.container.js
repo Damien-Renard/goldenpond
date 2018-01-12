@@ -75,10 +75,10 @@ class PanelContainer extends Component {
           {
             !activeDuck
             ? <div className="duck-controls">
-              <BtnDisabled text={'F'} />
+              <BtnDisabled text={'Forward'} />
               <div className="flex-row-center-center">
-                <BtnDisabled text={'P'} />
-                <BtnDisabled text={'S'} />
+                <BtnDisabled text={'Rotate L'} />
+                <BtnDisabled text={'Rotate R'} />
               </div>
             </div>
             : <div className="duck-controls">
